@@ -17,9 +17,8 @@ define Package/darkmoon
   SECTION  := net
   CATEGORY := Network
   TITLE    := Darkmoon
-  DEPENDS  := +libubox +libuci +kmod-ifb +kmod-sched-cake \
-              +kmod-sched-core +luci-base \
-              +CAKE_MQ:kmod-sched-cake-mq
+  DEPENDS  := +libuci +kmod-ifb +kmod-sched-cake \
+              +kmod-sched-core +luci-base
 endef
 
 define Package/darkmoon/description
