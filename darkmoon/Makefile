@@ -21,6 +21,10 @@ define Package/darkmoon
               +kmod-sched-core +luci-base
 endef
 
+define Package/darkmoon/conffiles
+  /etc/config/darkmoon
+endef
+
 define Package/darkmoon/description
   Adaptive CAKE qdisc bandwidth controller for OpenWrt, with integrated
   LuCI web interface.  Standalone - no sqm-scripts required.
