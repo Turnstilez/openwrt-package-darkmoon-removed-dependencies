@@ -1,0 +1,24 @@
+name: Build Darkmoon APK
+
+on:
+  workflow_dispatch: # This adds a manual "Play" button so you can trigger the build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Compile via OpenWrt SDK
+        uses: openwrt/gh-action-sdk@main
+        env:
+          ARCH: mipsel_24kc-25.12.0
+          FEED_DIR: ${{ github.workspace }}
+          PACKAGES: darkmoon
+
+      - name: Save APK Result
+        uses: actions/upload-artifact@v4
+        with:
+          name: netgear-r7450-darkmoon-apk
+          path: bin/packages/mipsel_24kc/base/*.apk
